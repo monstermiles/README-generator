@@ -1,73 +1,97 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs')
-const generateMarkdown = require('.')
+// const generateMarkdown = require('/generateMarkdown.js')
+
+
 // TODO: Create an array of questions for user input
+
 const questions = [
     {
         type: 'input',
-        name: 'title',
-        prompt: 'What is the title of your project?'
+        message: 'What is the title of your project?',
+        name: 'title'
     },
 
     {
         type: 'input',
-        name: 'description',
-        prompt: 'Enter a description of your project.'
+        message: 'Enter a description of your project.',
+        name: 'description'
     },
     
     {
         type:'input',
-        name: 'installation',
-        prompt: 'Enter the necessary steps for installing your project.'
+        message: 'Enter the necessary steps for installing your project.',
+        name: 'instalation'
     },
     
     {
         type:'input',
-        name:'usage',
-        prompt:'Enter instructions for using this project.'
+        message: 'Enter instructions for using this project.',
+        name: 'usage'
     },
     {
         type:'input',
-        name:'contributing',
-        prompt:'How can others contribute to this project?',
+        message:'How can others contribute to this project?',
+        name: 'contributing'
     },
     {
         type:'input',
-        name:'testing',
-        prompt:'Describe how users can test this project.'
+        message:'Describe how users can test this project.',
+        name: 'testing'
     },
     {
         type:'input',
-        name:'github',
-        prompt:'Enter your Github username.',
+        message:'Enter your Github username.',
+        name: 'github'
     },
     {
         type:'input',
-        name:'email',
-        prompt:'Enter your email adress.',
+        message:'Enter your email adress.',
+        name: 'email'
     },
     {
         type:'confirm',
-        name:'license',
-        prompt:'Does this project need a license?'
+        message:'Does this project need a license?',
+        name: 'lisence'
     },
     {
         type:'list',
-        name:'licenseType',
-        prompt:'Select a type of license.',
+        message:'Select a type of license.',
+        name: 'lisenceType',
         choices:''
-    }
+    },
+]
 
-];
+ // define variable for answers
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile('$`fileName`).md'
+
+ // TODO: Create a function to initialize app
+
+function init() {
+    inquirer.prompt(questions) 
+
+   
 }
 
-// TODO: Create a function to initialize app
-function init() {}
+
+
+
+// TODO: Create a function to write README file
+
+
+// .then((response) =>
+//  fs.writeFile(`${response.title}-README.md`, '${JSON.stringify(response)}', (err)
+//  err ? console.log(err) : console.log('success!'))
+
+// );
+
+//this function should be separate, this happens after initializing the app
+
+
+
+
+
 
 // Function call to initialize app
 init();

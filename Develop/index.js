@@ -1,10 +1,5 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer')
-const fs = require('fs')
-// const generateMarkdown = require('/generateMarkdown.js')
 
-
-// TODO: Create an array of questions for user input
 
 const questions = [
     {
@@ -55,43 +50,19 @@ const questions = [
         message:'Does this project need a license?',
         name: 'lisence'
     },
-    {
-        type:'list',
-        message:'Select a type of license.',
-        name: 'lisenceType',
-        choices:''
-    },
+    // {
+    //     type:'list',
+    //     message:'Select a type of license.',
+    //     name: 'lisenceType',
+    //     choices:''
+    // },
 ]
 
- // define variable for answers
-
-
- // TODO: Create a function to initialize app
-
-function init() {
-    inquirer.prompt(questions) 
-
-   
+inquirer.prompt(questions)
+.then((answer) => {
+    console.log(answer)
 }
+)
 
 
 
-
-// TODO: Create a function to write README file
-
-
-// .then((response) =>
-//  fs.writeFile(`${response.title}-README.md`, '${JSON.stringify(response)}', (err)
-//  err ? console.log(err) : console.log('success!'))
-
-// );
-
-//this function should be separate, this happens after initializing the app
-
-
-
-
-
-
-// Function call to initialize app
-init();

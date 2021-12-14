@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -117,8 +116,8 @@ inquirer.prompt(questions)
         
         ## Questions
         Contact me here with any questions about this project:
-        ${answer.github}
-        ${answer.email}
+        Github: ${answer.github}
+        Email: ${answer.email}
 
         `;
         

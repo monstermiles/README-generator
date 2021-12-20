@@ -1,6 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
+
+
+// ![github license](https://img.shields.io/badge/license-${license}-blue.svg)
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -43,10 +48,10 @@ const questions = [
         name: 'licenseYN'
     },
     {
-        type:'list',
-        message:'Select a type of license.',
+        type: 'list',
+        message: 'Select a type of license.',
         name: 'license',
-        choices:['Apache 2.0', 'BSD', 'MIT', 'No License']
+        choices: ['Apache 2.0', 'BSD', 'MIT', 'No License']
     },
     {
         type: 'input',
@@ -58,7 +63,7 @@ const questions = [
         message: 'Enter your email adress.',
         name: 'email'
     },
-   
+
 ]
 
 
@@ -71,11 +76,11 @@ inquirer.prompt(questions)
     .then((answer) => {
         console.log(answer);
 
-        const fileName = `${answer.title}.md `  
+        const fileName = `${answer.title}.md `
 
         // // TODO: Create a function to generate markdown for README
-        const markdownContent =  
-        `
+        const markdownContent =
+            `
         ${answer.title}
         ${(renderLicenseBadge(answer.license))}
 
@@ -111,6 +116,7 @@ inquirer.prompt(questions)
 
 
         ## License
+        ${renderLicenseBadge(answer.license)}
         ${renderLicenseSection(answer.license)}
 
         
@@ -120,23 +126,16 @@ inquirer.prompt(questions)
         Email: ${answer.email}
 
         `;
-        
-        
+
+
         console.log(markdownContent)
 
-        // TODO: Create a function that returns a license badge based on which license is passed in
-        // If there is no license, return an empty string
-        
+       
         const license = answer.license
-        
-        function renderLicenseBadge(license) {
-            if (license === 'Apache 2.0') {
-                return '[![Apache 2.0 License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]'
-            }
-
-        }        
-
-        // // TODO: Create a function that returns the license link
+       
+       
+       
+       // // TODO: Create a function that returns the license link
         // // If there is no license, return an empty string
         function renderLicenseLink(license) {
             if (license === 'Apache 2.0') {
@@ -152,6 +151,22 @@ inquirer.prompt(questions)
             }
         }
 
+       
+       
+       
+        // TODO: Create a function that returns a license badge based on which license is passed in
+        // If there is no license, return an empty string
+
+        function renderLicenseBadge(license) {
+
+            if (license !== 'None') {
+                return `![github license](https://img.shields.io/badge/license-${license}-blue.svg)`;
+            }
+            return '';
+
+
+        }
+
         // // TODO: Create a function that returns the license section of README
         // // If there is no license, return an empty string
         function renderLicenseSection(license) {
@@ -159,19 +174,16 @@ inquirer.prompt(questions)
                 return ''
             } else {
                 return `This project is under the ${license} license: ${renderLicenseLink(license)}`
-
             }
         }
 
 
         // TODO: Create a function to write README file
-        fs.writeFile(fileName, markdownContent, (err) => {
-            err ? console.log(err) : console.log('Success!')
-        }
-        )
+            fs.writeFile(fileName, markdownContent, (err) => {
+                err ? console.log(err) : console.log('Success!')
+            }
+            )
+        
 
     }
     )
-
-
-

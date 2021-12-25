@@ -44,48 +44,48 @@
       
 
       // // TODO: Create a function to generate markdown for README
-      return
-          `
-      ${data.title}
+      return`
+      
+      #${data.title}
       ${(renderLicenseBadge(data.license))}
 
 
       ## Table of Contents:
-      1. [Description](#description) 
-      2. [Installation](#installation)
-      3. [Usage](#usage)
-      4. [Contributing](#contributing)
-      5. [Testing](#testing)
-      6. [License](#license)
-      7. [Questions](#questions)
+      * [Description](##Description) 
+      * [Installation](##Installation)
+      * [Usage](##Usage)
+      * [Contributing](##Contributing)
+      * [Testing](##Testing)
+      * [License](##License)
+      * [Questions](##Questions)
 
 
-      ## Description
+      ## Description:
       ${data.description}
 
 
-      ## Installation
+      ## Installation:
       ${data.installation}
 
       
-      ## Usage
+      ## Usage:
       ${data.usage}
 
 
-      ## Contributing
+      ## Contributing:
       ${data.contributing}
 
       
-      ## Testing
+      ## Testing:
       ${data.testing}
 
 
-      ## License
+      ## License:
       ${renderLicenseBadge(data.license)}
       ${renderLicenseSection(data.license)}
 
       
-      ## Questions
+      ## Questions:
       Contact me here with any questions about this project:
       Github: ${data.github}
       Email: ${data.email}

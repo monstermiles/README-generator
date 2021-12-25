@@ -79,11 +79,16 @@ inquirer.prompt(questions)
 
         const fileName = `${answer.title}.md `
 
+        function writeToFile(file, data) {
+            return fs.writeFileSync(path.join(process.cwd(),file),data)
+        }
+
+        writeToFile(fileName, generateMarkdown({...answer}))
         // TODO: Create a function to write README file
-            fs.writeFile(fileName, generateMarkdown(answer), (err) => {
-                err ? console.log(err) : console.log('Success!')
-            }
-            )
+            // fs.writeFile(fileName, generateMarkdown(answer), (err) => {
+            //     err ? console.log(err) : console.log('Success!')
+            // }
+            // )
         
 
     }
